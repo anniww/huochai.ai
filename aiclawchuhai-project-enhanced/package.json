@@ -1,9 +1,0 @@
-{
-  "name": "aiclawchuhai-static-pro",
-  "private": true,
-  "version": "2.0.0",
-  "type": "module",
-  "scripts": {
-    "build": "node scripts/build.mjs"
-  }
-}

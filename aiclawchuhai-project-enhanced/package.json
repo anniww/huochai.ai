@@ -1,0 +1,11 @@
+{
+  "name": "aiclawchuhai-b-system",
+  "version": "3.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "python3 -m http.server 8787 -d public",
+    "generate": "node scripts/generate-pages.js",
+    "build": "node scripts/build-manifest.js",
+    "rebuild": "npm run generate && npm run build"
+  }
+}

@@ -1,1 +1,0 @@
-console.log('Use /admin/generator.html to export config, then extend this script to batch-generate more pages.');

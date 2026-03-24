@@ -1,0 +1,27 @@
+[
+  {
+    "id": "proof-block",
+    "name": "首页社交证明区",
+    "placement": "home_after_features",
+    "enabled": true,
+    "type": "rich-text",
+    "title": "为什么这个版本更适合你现在的业务",
+    "bodyHtml": "<p>你卖的是 <strong>AI 外贸获客软件</strong>，所以网站不能本末倒置。这个项目把重心放在搜索排名、页面扩张和聊天转化，而不是堆无关的官网展示页。</p><ul><li>围绕外贸获客关键词建页</li><li>国家 / 行业 / 平台词同步覆盖</li><li>所有 CTA 最终回到 WhatsApp / Telegram / 微信</li></ul>",
+    "ctaText": "现在咨询",
+    "ctaLink": "https://wa.me/85252195605?text=I%20want%20to%20rank%20my%20site"
+  },
+  {
+    "id": "seo-links-block",
+    "name": "SEO 外链 / 内链扩展区",
+    "placement": "home_before_faq",
+    "enabled": true,
+    "type": "links",
+    "title": "扩张搜索入口的重点页面",
+    "links": [
+      {"label": "AI Lead Generation Software", "url": "/blog/ai-lead-generation-software/"},
+      {"label": "WhatsApp Marketing Software", "url": "/blog/whatsapp-marketing-software/"},
+      {"label": "B2B AI Lead Generation", "url": "/blog/b2b-ai-lead-generation/"},
+      {"label": "USA AI Lead Generation", "url": "/geo/usa-ai-lead-generation/"}
+    ]
+  }
+]

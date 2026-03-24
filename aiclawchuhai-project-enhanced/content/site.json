@@ -1,0 +1,159 @@
+{
+  "site": {
+    "name": "AICL AI 外贸获客软件",
+    "tagline": "SEO + GEO + AI 收录友好的外贸获客系统",
+    "domain": "https://aiclawchuhai.shop",
+    "adminPassHash": "18d640f08fcf3e00a6184f38fa6c1fb1759302b8432b138a803aae35ba5c1113",
+    "language": "zh-CN",
+    "telegram": "https://t.me/aiclawchuhai",
+    "whatsapp": "https://wa.me/85252195605",
+    "wechat": "17276592029",
+    "repo": {
+      "owner": "",
+      "name": "",
+      "branch": "main",
+      "contentPath": "content"
+    }
+  },
+  "seo": {
+    "title": "AI外贸获客软件 | WhatsApp + TikTok + SEO + 社媒矩阵",
+    "description": "AICL 是面向外贸企业的 AI 获客自动化系统，覆盖 WhatsApp、TikTok、社媒矩阵、SEO 内容与 GEO 页面，帮助你获取海外精准客户。",
+    "keywords": [
+      "ai外贸获客软件",
+      "whatsapp获客软件",
+      "ai lead generation software",
+      "b2b lead generation",
+      "tiktok lead generation",
+      "seo 外贸获客",
+      "whatsapp marketing software"
+    ],
+    "footerLinks": [
+      {"label": "AI Lead Generation", "url": "https://aiclawchuhai.shop/"},
+      {"label": "WhatsApp Marketing Software", "url": "https://aiclawchuhai.shop/blog/whatsapp-marketing-software/"},
+      {"label": "B2B Lead Generation", "url": "https://aiclawchuhai.shop/blog/b2b-ai-lead-generation/"},
+      {"label": "USA Lead Generation", "url": "https://aiclawchuhai.shop/geo/usa-ai-lead-generation/"}
+    ]
+  },
+  "hero": {
+    "eyebrow": "AI外贸获客自动化平台",
+    "title": "让海外客户主动找到你，而不是你到处找客户",
+    "subtitle": "面向 AI 外贸获客软件业务的搜索型增长官网。围绕 WhatsApp、TikTok、社媒矩阵、AI 广告、SEO 内容和 GEO 页面持续生产可收录页面，把搜索流量、AI 检索流量和社媒转化统一到一个站点。",
+    "badges": [
+      "Cloudflare Pages 可部署",
+      "GitHub 自动更新",
+      "SEO / GEO 友好",
+      "博客 + 国家页 + 行业页",
+      "引流到 Telegram / WhatsApp / 微信"
+    ],
+    "primaryCtaText": "WhatsApp 咨询",
+    "secondaryCtaText": "进入 Telegram",
+    "tertiaryCtaText": "复制微信"
+  },
+  "painPoints": [
+    "流量来了但不转化",
+    "投广告但 ROI 低",
+    "落地页看起来不错但不赚钱",
+    "网站不能持续更新，SEO 不增长",
+    "外贸关键词太散，没有国家 / 行业聚合页",
+    "没有后台可以自己改价格、文章、页面和插件"
+  ],
+  "metrics": [
+    {"value": "24h", "label": "可上新一批内容页面"},
+    {"value": "3类", "label": "博客 / GEO / 自定义插件页"},
+    {"value": "100%", "label": "静态页面可被搜索引擎抓取"},
+    {"value": "0数据库", "label": "无需 D1 / 服务器数据库"}
+  ],
+  "features": [
+    {
+      "title": "TikTok AI 拓客页",
+      "desc": "突出 TikTok 矩阵、AI 视频翻译、批量混剪、数字人和批量发布能力，用于承接短视频获客词。",
+      "bullets": ["TikTok矩阵", "AI短视频翻译", "AI批量混剪", "AI产品数字人"]
+    },
+    {
+      "title": "WhatsApp 获客页",
+      "desc": "突出 WhatsApp AI 采集、筛选、群发与广告承接，统一把流量导入 WhatsApp 会话。",
+      "bullets": ["AI采集", "AI筛选", "AI群发", "直连 WhatsApp 广告"]
+    },
+    {
+      "title": "社媒 + SEO 聚合页",
+      "desc": "结合社媒矩阵、Google AI SEO、外链页、国家页、行业页，持续扩张自然流量入口。",
+      "bullets": ["Facebook / Instagram / Telegram", "Google AI SEO", "外链页", "国家 GEO 页面"]
+    },
+    {
+      "title": "AI 广告转化页",
+      "desc": "强调 AI 创意、广告情报、二筛流量和 WhatsApp 成交闭环，用于商业词与投放词着陆。",
+      "bullets": ["广告创意", "AI 二筛", "ROI 优化", "WhatsApp 回传"]
+    },
+    {
+      "title": "无数据库 CMS 后台",
+      "desc": "管理员在浏览器里改内容、改价格、改 SEO、改 GEO 页面，再一键推送到 GitHub 自动触发 Cloudflare 构建。",
+      "bullets": ["GitHub 同步", "JSON 内容中心", "导入导出", "插件上传"]
+    },
+    {
+      "title": "插件化内容板块",
+      "desc": "不是危险的任意代码执行，而是更适合 SEO 落地页的可上传内容插件：自定义模块、表格、案例、FAQ、链接区。",
+      "bullets": ["自定义首页模块", "自定义 CTA 区", "专题链接区", "国家/行业模板"]
+    }
+  ],
+  "pricing": [
+    {
+      "slug": "starter",
+      "name": "Starter",
+      "priceText": "价格后台自定义",
+      "billingNote": "适合单一产品线测试搜索获客",
+      "features": ["首页 + 文章 + GEO 页面", "后台改价格", "GitHub 一键同步", "基础插件"],
+      "ctaText": "咨询 Starter",
+      "ctaLink": "https://wa.me/85252195605?text=I%20want%20Starter",
+      "highlight": false
+    },
+    {
+      "slug": "growth",
+      "name": "Growth",
+      "priceText": "价格后台自定义",
+      "billingNote": "适合需要持续扩张 Google / AI 检索的业务",
+      "features": ["批量文章模板", "批量 GEO 页面", "多专题插件", "更强 SEO 内链"],
+      "ctaText": "咨询 Growth",
+      "ctaLink": "https://wa.me/85252195605?text=I%20want%20Growth",
+      "highlight": true
+    },
+    {
+      "slug": "pro",
+      "name": "Pro",
+      "priceText": "价格后台自定义",
+      "billingNote": "适合多国家、多行业、多落地页矩阵",
+      "features": ["国家 + 行业双矩阵", "内容批量生成", "插件组合", "自定义专题页"],
+      "ctaText": "咨询 Pro",
+      "ctaLink": "https://t.me/aiclawchuhai",
+      "highlight": false
+    }
+  ],
+  "faqs": [
+    {
+      "q": "这个版本为什么不需要数据库？",
+      "a": "因为内容、价格、文章、GEO 页面、插件和后台配置全部存成 JSON 文件，由 GitHub 托管，Cloudflare Pages 负责构建并发布静态页面。"
+    },
+    {
+      "q": "管理员后台怎么保存内容？",
+      "a": "你可以选择两种方式：1）浏览器内编辑后导出 JSON 包，手动提交到 GitHub；2）在后台填 GitHub Token，直接把 content/*.json 提交到仓库。"
+    },
+    {
+      "q": "有没有真正自动收集线索的 CRM？",
+      "a": "纯 Pages + GitHub 的零数据库版本不适合公开表单入库，因此当前做法是把前台咨询直接导流到 WhatsApp / Telegram / 微信，后台提供手动 CRM 看板与导入导出。若以后需要自动入库，再加 Workers/KV 或第三方表单服务。"
+    },
+    {
+      "q": "插件上传支持什么？",
+      "a": "支持上传 JSON 插件：自定义内容板块、CTA、案例区、外链区、表格区、FAQ 区。考虑到你要的是 SEO 落地页，当前不开放危险的任意 JS 代码上传。"
+    }
+  ],
+  "contact": {
+    "headline": "把搜索流量直接导入聊天软件",
+    "text": "前台咨询表单不会写入数据库，而是直接生成消息模板并跳转到 WhatsApp / Telegram，最大化减少流失。",
+    "defaultMessage": "你好，我想了解 AI 外贸获客软件，主要关注 SEO 落地页、GEO 页面、WhatsApp 引流和后台管理。"
+  },
+  "manualCrm": {
+    "columns": ["新线索", "已联系", "跟进中", "已成交"],
+    "leads": [
+      {"name": "Demo Buyer", "company": "Global Import Ltd", "country": "USA", "channel": "WhatsApp", "status": "新线索", "notes": "示例数据，可在后台删除或改成真实客户。"}
+    ]
+  }
+}

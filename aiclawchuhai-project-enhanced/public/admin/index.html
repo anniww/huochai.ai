@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AICL 无数据库 CMS / SEO / GitHub 后台</title>
+  <link rel="stylesheet" href="/assets/styles.css" />
+</head>
+<body>
+  <div class="admin-shell container">
+    <div class="admin-top">
+      <div>
+        <span class="eyebrow">增强版后台（零数据库）</span>
+        <h1 style="font-size:42px;margin:10px 0 0;">CMS / SEO / GEO / GitHub Sync</h1>
+        <p>专为 Cloudflare Pages + GitHub 设计。无 D1、无服务器数据库。后台编辑 JSON 内容，再导出或一键推送到 GitHub。</p>
+      </div>
+      <div class="cta-row">
+        <a class="btn btn-secondary" href="/" target="_blank" rel="noopener">打开前台</a>
+        <button class="btn btn-ghost" id="logoutBtn">退出</button>
+      </div>
+    </div>
+
+    <section class="admin-card" id="loginCard">
+      <h2>管理员登录</h2>
+      <p>这里的“登录”是静态站点版的轻量保护，真正的写入权限由 GitHub Token 控制。</p>
+      <div class="form-grid">
+        <label class="full"><span>后台口令</span><input id="passInput" type="password" placeholder="默认 change-me-2026!，请登录后立即修改" /></label>
+      </div>
+      <div class="admin-actions"><button class="btn btn-primary" id="loginBtn">进入后台</button></div>
+    </section>
+
+    <div id="dashboard" style="display:none;">
+      <div class="tabs" id="tabs"></div>
+
+      <section class="tab-panel is-active" data-tab="site">
+        <div class="admin-grid">
+          <section class="admin-card">
+            <h2>站点设置</h2>
+            <div class="form-grid">
+              <label><span>站点名称</span><input id="site_name" /></label>
+              <label><span>Tagline</span><input id="site_tagline" /></label>
+              <label><span>域名</span><input id="site_domain" /></label>
+              <label><span>语言</span><input id="site_language" /></label>
+              <label><span>Telegram</span><input id="site_telegram" /></label>
+              <label><span>WhatsApp</span><input id="site_whatsapp" /></label>
+              <label><span>微信</span><input id="site_wechat" /></label>
+              <label class="full"><span>后台新口令（可空）</span><input id="site_new_pass" type="password" placeholder="留空则不改" /></label>
+            </div>
+            <div class="admin-actions"><button class="btn btn-primary" id="saveSiteBtn">保存站点设置</button></div>
+          </section>
+
+          <section class="admin-card">
+            <h2>首页 Hero & SEO</h2>
+            <div class="form-grid">
+              <label class="full"><span>SEO Title</span><input id="seo_title" /></label>
+              <label class="full"><span>SEO Description</span><textarea id="seo_description"></textarea></label>
+              <label class="full"><span>SEO Keywords（逗号分隔）</span><input id="seo_keywords" /></label>
+              <label class="full"><span>Hero 眉标</span><input id="hero_eyebrow" /></label>
+              <label class="full"><span>Hero 标题</span><input id="hero_title" /></label>
+              <label class="full"><span>Hero 副标题</span><textarea id="hero_subtitle"></textarea></label>
+              <label class="full"><span>Hero Badges（每行一个）</span><textarea id="hero_badges"></textarea></label>
+            </div>
+            <div class="admin-actions"><button class="btn btn-primary" id="saveSeoBtn">保存 SEO / Hero</button></div>
+          </section>
+        </div>
+      </section>
+
+      <section class="tab-panel" data-tab="pricing">
+        <div class="admin-grid">
+          <section class="admin-card">
+            <h2>套餐列表</h2>
+            <div id="pricingList" class="list-stack"></div>
+          </section>
+          <section class="admin-card">
+            <h2>新增 / 编辑套餐</h2>
+            <input id="plan_index" type="hidden" />
+            <div class="form-grid">
+              <label><span>Slug</span><input id="plan_slug" /></label>
+              <label><span>名称</span><input id="plan_name" /></label>
+              <label><span>价格文案</span><input id="plan_priceText" /></label>
+              <label><span>备注</span><input id="plan_billingNote" /></label>
+              <label class="full"><span>功能（每行一个）</span><textarea id="plan_features"></textarea></label>
+              <label><span>CTA 文案</span><input id="plan_ctaText" /></label>
+              <label><span>CTA 链接</span><input id="plan_ctaLink" /></label>
+              <label><span>高亮套餐</span><select id="plan_highlight"><option value="false">false</option><option value="true">true</option></select></label>
+            </div>
+            <div class="admin-actions">
+              <button class="btn btn-primary" id="savePlanBtn">保存套餐</button>
+              <button class="btn btn-secondary" id="resetPlanBtn">清空表单</button>
+            </div>
+          </section>
+        </div>
+      </section>
+
+      <section class="tab-panel" data-tab="posts">
+        <div class="admin-grid">
+          <section class="admin-card">
+            <h2>文章列表</h2>
+            <div class="admin-actions">
+              <button class="btn btn-secondary" id="generatePostBatchBtn">一键生成文章草稿</button>
+            </div>
+            <div id="postsList" class="list-stack"></div>
+          </section>
+          <section class="admin-card">
+            <h2>新增 / 编辑文章</h2>
+            <input id="post_index" type="hidden" />
+            <div class="form-grid">
+              <label><span>Slug</span><input id="post_slug" /></label>
+              <label><span>标题</span><input id="post_title" /></label>
+              <label class="full"><span>摘要</span><textarea id="post_excerpt"></textarea></label>
+              <label><span>SEO 标题</span><input id="post_seoTitle" /></label>
+              <label><span>SEO 描述</span><input id="post_seoDescription" /></label>
+              <label class="full"><span>关键词（逗号分隔）</span><input id="post_keywords" /></label>
+              <label><span>分类</span><input id="post_category" /></label>
+              <label><span>Hero Label</span><input id="post_heroLabel" /></label>
+              <label><span>更新时间</span><input id="post_updatedAt" /></label>
+              <label class="full"><span>正文 HTML</span><textarea id="post_bodyHtml"></textarea></label>
+            </div>
+            <div class="admin-actions">
+              <button class="btn btn-primary" id="savePostBtn">保存文章</button>
+              <button class="btn btn-secondary" id="resetPostBtn">清空表单</button>
+            </div>
+          </section>
+        </div>
+      </section>
+
+      <section class="tab-panel" data-tab="geo">
+        <div class="admin-grid">
+          <section class="admin-card">
+            <h2>GEO 页面列表</h2>
+            <div class="admin-actions">
+              <button class="btn btn-secondary" id="generateGeoBatchBtn">一键生成国家页草稿</button>
+            </div>
+            <div id="geoList" class="list-stack"></div>
+          </section>
+          <section class="admin-card">
+            <h2>新增 / 编辑 GEO 页面</h2>
+            <input id="geo_index" type="hidden" />
+            <div class="form-grid">
+              <label><span>Slug</span><input id="geo_slug" /></label>
+              <label><span>标题</span><input id="geo_title" /></label>
+              <label><span>Country</span><input id="geo_country" /></label>
+              <label><span>City</span><input id="geo_city" /></label>
+              <label class="full"><span>Intro</span><textarea id="geo_intro"></textarea></label>
+              <label><span>SEO 标题</span><input id="geo_seoTitle" /></label>
+              <label><span>SEO 描述</span><input id="geo_seoDescription" /></label>
+              <label class="full"><span>关键词（逗号分隔）</span><input id="geo_keywords" /></label>
+              <label><span>更新时间</span><input id="geo_updatedAt" /></label>
+              <label class="full"><span>正文 HTML</span><textarea id="geo_bodyHtml"></textarea></label>
+            </div>
+            <div class="admin-actions">
+              <button class="btn btn-primary" id="saveGeoBtn">保存 GEO 页</button>
+              <button class="btn btn-secondary" id="resetGeoBtn">清空表单</button>
+            </div>
+          </section>
+        </div>
+      </section>
+
+      <section class="tab-panel" data-tab="plugins">
+        <div class="admin-grid">
+          <section class="admin-card">
+            <h2>插件列表</h2>
+            <p>这里的插件是适合 SEO 落地页的内容插件，不是任意执行代码。</p>
+            <div class="admin-actions">
+              <input type="file" id="pluginImportInput" accept="application/json" style="display:none;" />
+              <button class="btn btn-secondary" id="importPluginBtn">上传 JSON 插件</button>
+            </div>
+            <div id="pluginsList" class="list-stack"></div>
+          </section>
+          <section class="admin-card">
+            <h2>新增 / 编辑插件</h2>
+            <input id="plugin_index" type="hidden" />
+            <div class="form-grid">
+              <label><span>ID</span><input id="plugin_id" /></label>
+              <label><span>名称</span><input id="plugin_name" /></label>
+              <label><span>Placement</span><select id="plugin_placement"><option value="home_after_features">home_after_features</option><option value="home_before_faq">home_before_faq</option><option value="home_after_pricing">home_after_pricing</option></select></label>
+              <label><span>Type</span><select id="plugin_type"><option value="rich-text">rich-text</option><option value="links">links</option></select></label>
+              <label><span>启用</span><select id="plugin_enabled"><option value="true">true</option><option value="false">false</option></select></label>
+              <label class="full"><span>标题</span><input id="plugin_title" /></label>
+              <label class="full"><span>正文 HTML（rich-text 用）</span><textarea id="plugin_bodyHtml"></textarea></label>
+              <label><span>CTA 文字</span><input id="plugin_ctaText" /></label>
+              <label><span>CTA 链接</span><input id="plugin_ctaLink" /></label>
+              <label class="full"><span>Links JSON（links 类型用）</span><textarea id="plugin_links" placeholder='[{"label":"Title","url":"/path/"}]'></textarea></label>
+            </div>
+            <div class="admin-actions">
+              <button class="btn btn-primary" id="savePluginBtn">保存插件</button>
+              <button class="btn btn-secondary" id="resetPluginBtn">清空表单</button>
+            </div>
+          </section>
+        </div>
+      </section>
+
+      <section class="tab-panel" data-tab="crm">
+        <div class="admin-grid">
+          <section class="admin-card">
+            <h2>手动 CRM 看板</h2>
+            <p>零数据库版本仅提供手动维护线索与导入导出。</p>
+            <div class="table-wrap"><table><thead><tr><th>姓名</th><th>公司</th><th>国家</th><th>渠道</th><th>状态</th><th>备注</th><th></th></tr></thead><tbody id="crmTable"></tbody></table></div>
+          </section>
+          <section class="admin-card">
+            <h2>新增 / 编辑线索</h2>
+            <input id="lead_index" type="hidden" />
+            <div class="form-grid">
+              <label><span>姓名</span><input id="lead_name" /></label>
+              <label><span>公司</span><input id="lead_company" /></label>
+              <label><span>国家</span><input id="lead_country" /></label>
+              <label><span>渠道</span><input id="lead_channel" /></label>
+              <label><span>状态</span><select id="lead_status"></select></label>
+              <label class="full"><span>备注</span><textarea id="lead_notes"></textarea></label>
+            </div>
+            <div class="admin-actions">
+              <button class="btn btn-primary" id="saveLeadBtn">保存线索</button>
+              <button class="btn btn-secondary" id="resetLeadBtn">清空表单</button>
+            </div>
+          </section>
+        </div>
+      </section>
+
+      <section class="tab-panel" data-tab="github">
+        <div class="admin-grid">
+          <section class="admin-card">
+            <h2>GitHub 同步</h2>
+            <p>填写后可把 <span class="inline-code">content/*.json</span> 直接提交到仓库，Cloudflare Pages 会自动重新部署。</p>
+            <div class="form-grid">
+              <label><span>Owner</span><input id="gh_owner" /></label>
+              <label><span>Repo</span><input id="gh_repo" /></label>
+              <label><span>Branch</span><input id="gh_branch" /></label>
+              <label><span>Content Path</span><input id="gh_contentPath" /></label>
+              <label class="full"><span>GitHub Token（仅保存在当前浏览器 localStorage）</span><input id="gh_token" type="password" /></label>
+            </div>
+            <div class="admin-actions">
+              <button class="btn btn-primary" id="saveGithubBtn">保存 GitHub 配置</button>
+              <button class="btn btn-secondary" id="pushGithubBtn">一键推送到 GitHub</button>
+            </div>
+          </section>
+
+          <section class="admin-card">
+            <h2>导出 / 导入</h2>
+            <p>如果你不想在后台填 Token，可以导出完整内容包，再手动上传到 GitHub 仓库里的 <span class="inline-code">content/</span> 目录。</p>
+            <div class="admin-actions">
+              <button class="btn btn-secondary" id="exportJsonBtn">导出 all-content.json</button>
+              <input type="file" id="importJsonInput" accept="application/json" style="display:none;" />
+              <button class="btn btn-secondary" id="importJsonBtn">导入 all-content.json</button>
+              <button class="btn btn-ghost" id="downloadContentFilesBtn">下载 content 目录 JSON</button>
+            </div>
+            <hr class="sep" />
+            <div class="notice">推送完成后，等待 Cloudflare Pages 重新构建即可生效。</div>
+          </section>
+        </div>
+      </section>
+    </div>
+  </div>
+  <script src="/admin/app.js"></script>
+</body>
+</html>

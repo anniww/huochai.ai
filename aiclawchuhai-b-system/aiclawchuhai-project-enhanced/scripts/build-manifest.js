@@ -1,0 +1,1 @@
+console.log('Sitemap is already included. Rebuild script placeholder ready for extension.');

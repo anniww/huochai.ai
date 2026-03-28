@@ -1,21 +1,35 @@
-# AI 出海获客 B System
+【限時福利】免費獲取專屬 AI 出海獲客方案！錯過再等一年！
 
-这是半自动长期运营版本，核心不是纯手工，也不是全自动垃圾站，而是：
-- 高保真前端 UI
-- 平台页 / 方案页 / 场景页 / 资源中心
-- 静态后台
-- B 系统生成器
-- Cloudflare Pages + GitHub 友好
+主文：
+重磅福利來襲！🎉
 
-## 长期运营推荐流程
-1. 在 `/admin/generator.html` 维护种子词、国家、语言和数量
-2. 导出配置 JSON
-3. 用脚本扩展更多页面
-4. 提交 GitHub
-5. Cloudflare 自动部署
+「火柴ai」為感謝廣大外貿夥伴的支持，現推出限時免費獲取「專屬 AI 出海獲客方案」活動！
 
-## Cloudflare 配置
-- Framework preset: None
-- Build command: 留空
-- Build output directory: public
-- Root directory: aiclawchuhai-project-enhanced
+無論您是通訊、服裝、3C、假髮、機械、家居、運動用品等任何行業，只要您有出海拓客的需求，我們都能為您量身定制最適合的 AI 解決方案，助您：
+
+•
+大幅降低獲客成本！
+
+•
+顯著提升廣告 ROI！
+
+•
+輕鬆實現私域轉化！
+
+•
+告別封號煩惱！
+
+這是一個不容錯過的機會，讓您在 AI 時代搶佔先機！
+
+👉 立即點擊連結，填寫表單獲取您的專屬方案：https://aiclawchuhai.shop/
+
+行動呼籲： 機會難得 ，立即行動！私訊我們或點擊連結，開啟您的 AI 出海新篇章！
+
+聯絡方式：
+TG: @aiclawchuhai
+微信：17276592029
+whatsapp：+85256195605
+
+Hashtags：
+#限时福利 #免费方案 #AI出海 #外贸获客 #跨境电商 #优惠活动 #火柴ai #不容错过
+
